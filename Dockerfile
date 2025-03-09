@@ -59,6 +59,9 @@ RUN curl -fsSL ${MC_HELPER_BASE_URL}/mc-image-helper-${MC_HELPER_VERSION}.tgz \
   && ln -s /usr/share/mc-image-helper-${MC_HELPER_VERSION}/bin/mc-image-helper /usr/bin
 
 # VOLUME ["/data"]
+# Ensure /data exists and has correct permissions for Railway Volume
+RUN mkdir -p /data && chmod -R 777 /data
+
 WORKDIR /data
 
 STOPSIGNAL SIGTERM
