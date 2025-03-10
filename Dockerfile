@@ -13,7 +13,8 @@ ARG EXTRA_DNF_PACKAGES=""
 ARG EXTRA_ALPINE_PACKAGES=""
 ARG FORCE_INSTALL_PACKAGES=1
 RUN --mount=target=/build,source=build ls -lah /build
-RUN --mount=target=/build,source=build ls -lah /build/<your-distro>/
+RUN --mount=target=/build,source=build cat /etc/os-release
+RUN --mount=target=/build,source=build sh -c 'echo "Detected distro: $(cat /etc/os-release | grep -E "^ID=" | cut -d= -f2 | sed -e "s/\"//g")"'
 RUN --mount=target=/build,source=build cat /build/run.sh
 
 
