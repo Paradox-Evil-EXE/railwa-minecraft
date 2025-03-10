@@ -79,7 +79,7 @@ COPY --chmod=755 files/auto /auto
 
 RUN curl -fsSL -o /image/Log4jPatcher.jar https://github.com/CreeperHost/Log4jPatcher/releases/download/v1.0.1/Log4jPatcher-1.0.1.jar
 
-cat /etc/os-release
+RUN cat /etc/os-release
 RUN dos2unix /start* /auto/*
 
 ENTRYPOINT [ "/start" ]
