@@ -84,5 +84,7 @@ RUN dos2unix /start* /auto/*
 
 RUN dos2unix /start* /auto/*
 
+RUN apt-get update && apt-get install -y gosu
+
 ENTRYPOINT [ "/start" ]
 HEALTHCHECK --start-period=2m --retries=2 --interval=30s CMD mc-health
