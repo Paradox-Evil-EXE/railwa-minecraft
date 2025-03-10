@@ -13,7 +13,7 @@ ARG EXTRA_DNF_PACKAGES=""
 ARG EXTRA_ALPINE_PACKAGES=""
 ARG FORCE_INSTALL_PACKAGES=1
 RUN --mount=target=/build,source=build \
-    TARGET=${TARGETARCH}${TARGETVARIANT} \
+    ENV TARGET=${TARGETARCH}${TARGETVARIANT} \
     /build/run.sh install-packages
 
 RUN --mount=target=/build,source=build \
