@@ -12,9 +12,10 @@ ARG EXTRA_DEB_PACKAGES=""
 ARG EXTRA_DNF_PACKAGES=""
 ARG EXTRA_ALPINE_PACKAGES=""
 ARG FORCE_INSTALL_PACKAGES=1
-RUN --mount=target=/build,source=build \
-    ENV TARGET=${TARGETARCH}${TARGETVARIANT} \
-    /build/run.sh install-packages
+RUN --mount=target=/build,source=build ls -lah /build
+RUN --mount=target=/build,source=build ls -lah /build/<your-distro>/
+RUN --mount=target=/build,source=build cat /build/run.sh
+
 
 RUN --mount=target=/build,source=build \
     /build/run.sh setup-user
